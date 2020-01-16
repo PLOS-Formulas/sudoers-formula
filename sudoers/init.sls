@@ -16,6 +16,10 @@ sudo:
     - source: salt://sudoers/files/sudoers
     - context:
         included: False
+{%- if salt.grains.get('oscodename') == 'trusty' %}
+        ad_groups: {{ ad_groups|json }}
+{%- else %}
         ad_groups: {{ ad_groups|tojson }}
+{%- endif -%}
     - require:
       - pkg: sudo
