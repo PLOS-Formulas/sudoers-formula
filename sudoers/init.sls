@@ -20,6 +20,6 @@ sudo:
         ad_groups: {{ ad_groups|json }}
 {%- else %}
         ad_groups: {{ ad_groups|tojson }}
-{%- endif -%}
+{%- endif %}
     - require:
       - pkg: sudo
