@@ -16,7 +16,7 @@ sudo:
     - source: salt://sudoers/files/sudoers
     - context:
         included: False
-{%- if salt.grains.get('oscodename') == 'trusty' %}
+{%- if salt.grains.get('saltversion') < '2018.3.3' %}
         ad_groups: {{ ad_groups|json }}
 {%- else %}
         ad_groups: {{ ad_groups|tojson }}
